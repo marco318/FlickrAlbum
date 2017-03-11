@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+class NetworkingController {
+  static let shared = NetworkingController()
+  private init() {}
+  
+  
+}
