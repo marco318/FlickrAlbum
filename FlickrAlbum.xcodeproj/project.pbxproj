@@ -12,6 +12,7 @@
 		24FFCB381E7395DC00F30C91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24FFCB361E7395DC00F30C91 /* Main.storyboard */; };
 		24FFCB3A1E7395DC00F30C91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24FFCB391E7395DC00F30C91 /* Assets.xcassets */; };
 		24FFCB3D1E7395DC00F30C91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24FFCB3B1E7395DC00F30C91 /* LaunchScreen.storyboard */; };
+		B56AB8F9FDD3199B5B96D407 /* Pods_FlickrAlbum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7B2084825AC73C4C6CE167C /* Pods_FlickrAlbum.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		24FFCB391E7395DC00F30C91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24FFCB3C1E7395DC00F30C91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		24FFCB3E1E7395DC00F30C91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D44A1A3698B05DFAB6B46A2 /* Pods-FlickrAlbum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrAlbum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrAlbum/Pods-FlickrAlbum.debug.xcconfig"; sourceTree = "<group>"; };
+		CF51C6645C8CC59312FAA1FF /* Pods-FlickrAlbum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrAlbum.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrAlbum/Pods-FlickrAlbum.release.xcconfig"; sourceTree = "<group>"; };
+		E7B2084825AC73C4C6CE167C /* Pods_FlickrAlbum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlickrAlbum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B56AB8F9FDD3199B5B96D407 /* Pods_FlickrAlbum.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				24FFCB311E7395DC00F30C91 /* FlickrAlbum */,
 				24FFCB301E7395DC00F30C91 /* Products */,
+				303D69C74CBD6E3F5DEA3019 /* Pods */,
+				68FCE028A196B36AB6094001 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = FlickrAlbum;
 			sourceTree = "<group>";
 		};
+		303D69C74CBD6E3F5DEA3019 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4D44A1A3698B05DFAB6B46A2 /* Pods-FlickrAlbum.debug.xcconfig */,
+				CF51C6645C8CC59312FAA1FF /* Pods-FlickrAlbum.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		68FCE028A196B36AB6094001 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E7B2084825AC73C4C6CE167C /* Pods_FlickrAlbum.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 24FFCB411E7395DC00F30C91 /* Build configuration list for PBXNativeTarget "FlickrAlbum" */;
 			buildPhases = (
+				C4E45F8BAC08C15863D8B939 /* [CP] Check Pods Manifest.lock */,
 				24FFCB2B1E7395DC00F30C91 /* Sources */,
 				24FFCB2C1E7395DC00F30C91 /* Frameworks */,
 				24FFCB2D1E7395DC00F30C91 /* Resources */,
+				D7247D873391AB51386F59FC /* [CP] Embed Pods Frameworks */,
+				CFCF1FD4F10647C1417D1C3F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C4E45F8BAC08C15863D8B939 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CFCF1FD4F10647C1417D1C3F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FlickrAlbum/Pods-FlickrAlbum-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D7247D873391AB51386F59FC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FlickrAlbum/Pods-FlickrAlbum-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		24FFCB2B1E7395DC00F30C91 /* Sources */ = {
@@ -259,6 +334,7 @@
 		};
 		24FFCB421E7395DC00F30C91 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D44A1A3698B05DFAB6B46A2 /* Pods-FlickrAlbum.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GB53ADK98F;
@@ -272,6 +348,7 @@
 		};
 		24FFCB431E7395DC00F30C91 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF51C6645C8CC59312FAA1FF /* Pods-FlickrAlbum.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GB53ADK98F;
