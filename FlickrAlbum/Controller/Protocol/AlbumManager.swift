@@ -10,6 +10,8 @@ import Foundation
 
 protocol AlbumManager {
   func requestPhotoFeeds()
+  func downloadNewImages()
   func didUpdatePhotos()
   func remove(old: Photo)
+  func checkMoq()
 }

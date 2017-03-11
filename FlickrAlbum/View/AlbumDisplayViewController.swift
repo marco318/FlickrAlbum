@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
 class AlbumDisplayViewController: ViewController {
+  @IBOutlet weak var imageView: UIImageView!
   
   var albumController = AlbumController()
   
@@ -34,6 +36,13 @@ extension AlbumDisplayViewController: AlbumDisplay {
 
   
   func playButtonDidClicked() {
+    guard albumController.images.count > 0 else {
+      print("no image")
+      return
+    }
+    let image = albumController.images[0]
+    imageView.image = image
+    
   }
   
   func fetch(next: Photo) {

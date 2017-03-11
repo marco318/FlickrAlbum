@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import AEXML
+import SwiftyJSON
 
 class NetworkingController {
   static let shared = NetworkingController()
@@ -21,11 +22,11 @@ class NetworkingController {
     return SessionManager(configuration: config)
   }()
     
-  fileprivate func request(to url: String, by method: HTTPMethod, with params: [String: Any]?, _ completion: @escaping ((DataResponse<Data>) -> Void)) {
+  fileprivate func request(to url: String, by method: HTTPMethod, with params: [String: Any]?, _ completion: @escaping ((DataResponse<Any>) -> Void)) {
     
     manager.request(url, method: method, parameters: params, encoding: URLEncoding.default)
       .validate(statusCode: 200..<300)
-      .responseData(completionHandler: completion)
+      .responseJSON(completionHandler: completion)
   }
 
   
@@ -34,36 +35,53 @@ class NetworkingController {
 extension NetworkingController: FlickrApi {
   func fetchPhotoFeeds(responseWith handler: FlickrApiResponseHandler) {
     let url = EndPoint.feeds.path
-    let completion: ((DataResponse<Data>) -> Void) = { response in
+    let params: [String: Any] = [
+      "format": "json",
+      "nojsoncallback": 1
+    ]
+    let completion: ((DataResponse<Any>) -> Void) = { response in
       switch response.result {
       case .success(let value):
-        do {
-          let xmlDoc = try AEXMLDocument(xml: value)
-          guard let entries = xmlDoc.root["entry"].all else {
-            break
-          }
-          var photos: [Photo] = []
-          for entry in entries {
-            if let title = entry["title"].value,
-              let link = entry["link"].attributes["href"] {
-              let photo = Photo(title: title, urlString: link)
-              photos.append(photo)
-            }
-          }
-          handler.didReceive(photos: photos)
-        } catch {
+        var photos: [Photo] = []
+        let json = JSON(value)
+        let items = json["items"].arrayValue
+        for item in items {
+          let title = item["title"].stringValue
+          let url = item["media"]["m"].stringValue
+          let photo = Photo(title: title, urlString: url)
           
+          photos.append(photo)
         }
+        handler.didReceive(photos: photos)
+//        do {
+//          let xmlDoc = try AEXMLDocument(xml: value)
+//          guard let entries = xmlDoc.root["entry"].all else {
+//            handler.didReceiveError(description: "")
+//            break
+//          }
+//          var photos: [Photo] = []
+//          for entry in entries {
+//            if let title = entry["title"].value,
+//              let link = entry["link"].attributes["href"] {
+//              let photo = Photo(title: title, urlString: link)
+//              photos.append(photo)
+//            }
+//          }
+//          handler.didReceive(photos: photos)
+//        } catch {
+//          handler.didReceiveError(description: error.localizedDescription)
+//        }
 
       case .failure(let error):
         print(error)
         if error._code == NSURLErrorTimedOut {
-          
-          //timeout here
+          handler.didReceiveTimeOut()
+        } else {
+          handler.didReceiveError(description: error.localizedDescription)
         }
       }
     }
-    request(to: url, by: .get, with: nil, completion)
+    request(to: url, by: .get, with: params, completion)
   }
   
   
