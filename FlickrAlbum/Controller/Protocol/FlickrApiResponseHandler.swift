@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+protocol FlickrApiResponseHandler {
+  func didReceive(photoFeeds: Any?)
+}

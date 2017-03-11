@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+protocol AlbumManager {
+  func parse(photoFeeds: PhotoFeeds) -> [Photo]
+  func didUpdatePhotos()
+}
