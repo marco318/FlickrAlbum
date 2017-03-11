@@ -61,6 +61,10 @@
 		24FFCB311E7395DC00F30C91 /* FlickrAlbum */ = {
 			isa = PBXGroup;
 			children = (
+				24FFCB471E739AB900F30C91 /* Util */,
+				24FFCB461E739AA900F30C91 /* Controller */,
+				24FFCB451E739AA300F30C91 /* View */,
+				24FFCB441E739A9B00F30C91 /* Model */,
 				24FFCB321E7395DC00F30C91 /* AppDelegate.swift */,
 				24FFCB341E7395DC00F30C91 /* ViewController.swift */,
 				24FFCB361E7395DC00F30C91 /* Main.storyboard */,
@@ -69,6 +73,34 @@
 				24FFCB3E1E7395DC00F30C91 /* Info.plist */,
 			);
 			path = FlickrAlbum;
+			sourceTree = "<group>";
+		};
+		24FFCB441E739A9B00F30C91 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		24FFCB451E739AA300F30C91 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		24FFCB461E739AA900F30C91 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		24FFCB471E739AB900F30C91 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		303D69C74CBD6E3F5DEA3019 /* Pods */ = {
