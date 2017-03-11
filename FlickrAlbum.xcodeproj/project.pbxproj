@@ -20,6 +20,7 @@
 		24FFCB541E739DAC00F30C91 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFCB531E739DAC00F30C91 /* Photo.swift */; };
 		24FFCB561E739DF800F30C91 /* AlbumManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFCB551E739DF800F30C91 /* AlbumManager.swift */; };
 		24FFCB581E739EC300F30C91 /* AlbumDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFCB571E739EC300F30C91 /* AlbumDisplay.swift */; };
+		24FFCB5B1E73A17A00F30C91 /* AlbumDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFCB5A1E73A17A00F30C91 /* AlbumDisplayViewController.swift */; };
 		B56AB8F9FDD3199B5B96D407 /* Pods_FlickrAlbum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7B2084825AC73C4C6CE167C /* Pods_FlickrAlbum.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		24FFCB531E739DAC00F30C91 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		24FFCB551E739DF800F30C91 /* AlbumManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumManager.swift; sourceTree = "<group>"; };
 		24FFCB571E739EC300F30C91 /* AlbumDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlbumDisplay.swift; path = ../AlbumDisplay.swift; sourceTree = "<group>"; };
+		24FFCB5A1E73A17A00F30C91 /* AlbumDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumDisplayViewController.swift; sourceTree = "<group>"; };
 		4D44A1A3698B05DFAB6B46A2 /* Pods-FlickrAlbum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrAlbum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrAlbum/Pods-FlickrAlbum.debug.xcconfig"; sourceTree = "<group>"; };
 		CF51C6645C8CC59312FAA1FF /* Pods-FlickrAlbum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrAlbum.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrAlbum/Pods-FlickrAlbum.release.xcconfig"; sourceTree = "<group>"; };
 		E7B2084825AC73C4C6CE167C /* Pods_FlickrAlbum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlickrAlbum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				24FFCB591E739ECA00F30C91 /* Protocol */,
+				24FFCB5A1E73A17A00F30C91 /* AlbumDisplayViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				24FFCB501E739C9600F30C91 /* FlickrApiResponseHandler.swift in Sources */,
 				24FFCB4B1E739BDC00F30C91 /* NetworkingController.swift in Sources */,
 				24FFCB491E739BCC00F30C91 /* AlbumController.swift in Sources */,
+				24FFCB5B1E73A17A00F30C91 /* AlbumDisplayViewController.swift in Sources */,
 				24FFCB331E7395DC00F30C91 /* AppDelegate.swift in Sources */,
 				24FFCB4E1E739C3B00F30C91 /* FlickrApi.swift in Sources */,
 				24FFCB561E739DF800F30C91 /* AlbumManager.swift in Sources */,
