@@ -1,4 +1,4 @@
 # FlickrAlbum
 
 ## Dependency
-- Cocoapods
+- Cocoapods: Use .xcworkspace to open this project
