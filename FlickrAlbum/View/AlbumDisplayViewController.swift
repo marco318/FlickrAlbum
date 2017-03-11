@@ -11,17 +11,22 @@ import UIKit
 
 class AlbumDisplayViewController: ViewController {
   @IBOutlet weak var imageView: UIImageView!
+  @IBOutlet weak var playButton: PlayButton!
   
   var albumController = AlbumController()
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    albumController.delegate = self
     albumController.requestPhotoFeeds()
     
   }
   // MARK: Actions
   
   @IBAction func onTouchPlayButton(_ sender: PlayButton) {
+    if sender.status == .loading {
+      return
+    }
     sender.flip()
     playButtonDidClicked()
   }
@@ -55,5 +60,14 @@ extension AlbumDisplayViewController: AlbumDisplay {
   
   func notifyDidFinishDisplay(of old: Photo) {
     
+  }
+}
+
+extension AlbumDisplayViewController: AlbumControllerDelegate {
+  func imageDidLoad() {
+    if playButton.status == .loading {
+      playButton.status = .goToPlay
+      playButton.updateUI(with: .goToPlay)
+    }
   }
 }

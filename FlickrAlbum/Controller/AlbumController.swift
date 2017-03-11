@@ -13,6 +13,8 @@ import SDWebImage
 
 class AlbumController: AlbumManager {
   
+  var delegate: AlbumControllerDelegate?
+  
   fileprivate(set) var photos: [Photo] = []
   fileprivate(set) var images: [UIImage] = []
   fileprivate var timeOutCount = 0
@@ -70,9 +72,8 @@ class AlbumController: AlbumManager {
         
         if let image = image {
           self.images.append(image)
-          print("new image added")
+          self.delegate?.imageDidLoad()
         } else {
-          print("no image, error: \(error.debugDescription)")
           failedToDownloadFirstPhoto = true
         }
         self.checkMoq()
@@ -100,7 +101,11 @@ extension AlbumController: FlickrApiResponseHandler {
   }
   
   func didReceiveError(description: String) {
-    // error
+    requestPhotoFeeds()
   }
   
+}
+
+protocol AlbumControllerDelegate {
+  func imageDidLoad()
 }

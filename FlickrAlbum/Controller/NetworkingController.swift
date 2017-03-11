@@ -53,30 +53,12 @@ extension NetworkingController: FlickrApi {
           photos.append(photo)
         }
         handler.didReceive(photos: photos)
-//        do {
-//          let xmlDoc = try AEXMLDocument(xml: value)
-//          guard let entries = xmlDoc.root["entry"].all else {
-//            handler.didReceiveError(description: "")
-//            break
-//          }
-//          var photos: [Photo] = []
-//          for entry in entries {
-//            if let title = entry["title"].value,
-//              let link = entry["link"].attributes["href"] {
-//              let photo = Photo(title: title, urlString: link)
-//              photos.append(photo)
-//            }
-//          }
-//          handler.didReceive(photos: photos)
-//        } catch {
-//          handler.didReceiveError(description: error.localizedDescription)
-//        }
 
       case .failure(let error):
-        print(error)
         if error._code == NSURLErrorTimedOut {
           handler.didReceiveTimeOut()
         } else {
+          print(response.data)
           handler.didReceiveError(description: error.localizedDescription)
         }
       }

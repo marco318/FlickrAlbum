@@ -35,7 +35,7 @@
                                     <action selector="onTouchPlayButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ltN-qA-ebd"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pQK-JA-kkj">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pQK-JA-kkj">
                                 <rect key="frame" x="26" y="80" width="323" height="479"/>
                                 <color key="backgroundColor" red="0.84313725490000002" green="0.84313725490000002" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
@@ -68,6 +68,7 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="pQK-JA-kkj" id="OVQ-mZ-Yzi"/>
+                        <outlet property="playButton" destination="1oL-bw-Ymw" id="tKg-2r-riN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

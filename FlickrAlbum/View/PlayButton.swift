@@ -12,22 +12,24 @@ import UIKit
 class PlayButton: UIButton {
   
   enum Status {
-    case goToPlay, goToStop
+    case goToPlay, goToStop, loading
     var titleText: String {
       switch self {
       case .goToPlay: return LocalizedStrings.PlayButton.play
       case .goToStop: return LocalizedStrings.PlayButton.stop
+      case .loading: return "Loading..."
       }
     }
     var backgroundColor: UIColor {
       switch self {
       case .goToPlay: return UIColor(red: 79/255, green: 213/255, blue: 112/255, alpha: 1)
       case .goToStop: return UIColor(red: 241/255, green: 143/255, blue: 142/255, alpha: 1)
+      case .loading: return UIColor(red: 79/255, green: 213/255, blue: 112/255, alpha: 1)
       }
     }
   }
   
-  var status: Status = .goToPlay
+  var status: Status = .loading
   
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
@@ -41,6 +43,7 @@ class PlayButton: UIButton {
   
   func flip() {
     switch status {
+    case .loading: return
     case .goToPlay: status = .goToStop
     case .goToStop: status = .goToPlay
     }
