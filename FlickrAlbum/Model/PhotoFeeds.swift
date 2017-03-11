@@ -9,5 +9,9 @@
 import Foundation
 
 struct PhotoFeeds {
-  
+  var updatedTimeString: String?
+  var updatedTime: Date? {
+    return Date()
+  }
+  var photos: [Photo] = []
 }

@@ -10,7 +10,6 @@ import Foundation
 
 protocol AlbumManager {
   func requestPhotoFeeds()
-  func parse(photoFeeds: PhotoFeeds) -> [Photo]
   func didUpdatePhotos()
   func remove(old: Photo)
 }

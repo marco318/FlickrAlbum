@@ -9,5 +9,6 @@
 import Foundation
 
 struct Photo {
-  
+  var title: String?
+  var urlString: String?
 }

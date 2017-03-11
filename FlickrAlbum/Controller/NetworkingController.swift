@@ -38,12 +38,30 @@ extension NetworkingController: FlickrApi {
       switch response.result {
       case .success(let value):
         let xml = SWXMLHash.parse(value)
-        handler.didReceive(photoFeeds: nil)
-        print(xml["feed"]["title"].element ?? "nil")
+        handler.didReceive(photoFeeds: self.photoFeeds(from: xml))
       case .failure(let error):
         print(error)
       }
     }
     request(to: url, by: .get, with: nil, completion)
+  }
+  
+  private func photoFeeds(from xml: XMLIndexer) -> PhotoFeeds? {
+    var photos: [Photo] = []
+    let timeString = xml["feed"]["updated"].element?.text
+    let photosXml = xml["feed"]["entry"].all
+    photosXml.forEach { element in
+      if let photo = photo(from: element) {
+        photos.append(photo)
+      }
+    }
+    return PhotoFeeds(updatedTimeString: timeString, photos: photos)
+  }
+  
+  private func photo(from xml: XMLIndexer) -> Photo? {
+    let title = xml["entry"]["title"].element?.text
+    let url = xml["entry"]["link"].element?.attribute(by: "href")?.text
+    
+    return Photo(title: title, urlString: url)
   }
 }
