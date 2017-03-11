@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  FlickrAlbum
+
+  Created by kimmyunghoon on 2017. 3. 11..
+  Copyright © 2017년 Raspberry Soft. All rights reserved.
+*/
+
+"PlayButton.play" = "Play";
+"PlayButton.stop" = "Stop";
