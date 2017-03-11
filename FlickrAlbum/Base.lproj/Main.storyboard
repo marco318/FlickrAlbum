@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -27,15 +28,24 @@
                                     <constraint firstAttribute="width" constant="150" id="hbD-W2-HxW"/>
                                     <constraint firstAttribute="height" constant="40" id="nZ0-81-uuw"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="onTouchPlayButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ltN-qA-ebd"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pQK-JA-kkj">
+                                <rect key="frame" x="26" y="80" width="323" height="479"/>
+                                <color key="backgroundColor" red="0.84313725490000002" green="0.84313725490000002" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="pQK-JA-kkj" secondAttribute="trailing" constant="10" id="0ks-xa-D8a"/>
+                            <constraint firstItem="pQK-JA-kkj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" id="4eG-d4-pzS"/>
+                            <constraint firstItem="pQK-JA-kkj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="7ZT-eW-5Vg"/>
+                            <constraint firstItem="1oL-bw-Ymw" firstAttribute="top" secondItem="pQK-JA-kkj" secondAttribute="bottom" constant="20" id="eIC-yq-hla"/>
                             <constraint firstItem="1oL-bw-Ymw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="giZ-Je-2Ph"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1oL-bw-Ymw" secondAttribute="bottom" constant="48" id="kX4-zP-ZEO"/>
                         </constraints>
