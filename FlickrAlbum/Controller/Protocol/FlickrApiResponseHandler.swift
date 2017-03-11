@@ -10,4 +10,6 @@ import Foundation
 
 protocol FlickrApiResponseHandler {
   func didReceive(photos: [Photo])
+  func didReceiveTimeOut()
+  func didReceiveError(description: String)
 }

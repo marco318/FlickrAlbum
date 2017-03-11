@@ -14,6 +14,7 @@ class AlbumDisplayViewController: ViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    albumController.requestPhotoFeeds()
     
   }
   // MARK: Actions
@@ -22,13 +23,17 @@ class AlbumDisplayViewController: ViewController {
     sender.flip()
     playButtonDidClicked()
   }
+  
+  @IBAction func onTouchTimerButton(_ sender: Any) {
+    AlertManager().show(.timer, from: self)
+  }
+  
 }
 
 extension AlbumDisplayViewController: AlbumDisplay {
 
   
   func playButtonDidClicked() {
-    albumController.requestPhotoFeeds()
   }
   
   func fetch(next: Photo) {

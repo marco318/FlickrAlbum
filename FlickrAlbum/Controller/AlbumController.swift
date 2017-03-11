@@ -11,6 +11,7 @@ import Foundation
 class AlbumController: AlbumManager {
   
   fileprivate(set) var photos: [Photo] = []
+  fileprivate var timeOutCount = 0
   
   func requestPhotoFeeds() {
     NetworkingController.shared.fetchPhotoFeeds(responseWith: self)
@@ -27,7 +28,22 @@ class AlbumController: AlbumManager {
 
 extension AlbumController: FlickrApiResponseHandler {
   func didReceive(photos: [Photo]) {
+    timeOutCount = 0
     self.photos = photos
     print("didReceive photos, count: \(photos.count)")
   }
+  
+  func didReceiveTimeOut() {
+    print("time out!! count: \(timeOutCount)")
+    if timeOutCount < 2 {
+      requestPhotoFeeds()
+    } else {
+      // error
+    }
+  }
+  
+  func didReceiveError(description: String) {
+    // error
+  }
+  
 }

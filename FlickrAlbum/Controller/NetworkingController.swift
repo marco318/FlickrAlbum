@@ -20,7 +20,7 @@ class NetworkingController {
     config.timeoutIntervalForResource = 5
     return SessionManager(configuration: config)
   }()
-  
+    
   fileprivate func request(to url: String, by method: HTTPMethod, with params: [String: Any]?, _ completion: @escaping ((DataResponse<Data>) -> Void)) {
     
     manager.request(url, method: method, parameters: params, encoding: URLEncoding.default)
@@ -57,6 +57,10 @@ extension NetworkingController: FlickrApi {
 
       case .failure(let error):
         print(error)
+        if error._code == NSURLErrorTimedOut {
+          
+          //timeout here
+        }
       }
     }
     request(to: url, by: .get, with: nil, completion)
