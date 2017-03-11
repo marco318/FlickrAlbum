@@ -10,9 +10,21 @@ import Foundation
 
 class AlbumDisplayViewController: ViewController {
   
+  // MARK: Actions
+  
+  @IBAction func onTouchPlayButton(_ sender: PlayButton) {
+    sender.flip()
+    playButtonDidClicked()
+  }
 }
 
 extension AlbumDisplayViewController: AlbumDisplay {
+
+  
+  func playButtonDidClicked() {
+    
+  }
+  
   func fetch(next: Photo) {
 
   }

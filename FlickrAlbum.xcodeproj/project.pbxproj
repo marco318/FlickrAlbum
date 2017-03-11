@@ -21,6 +21,9 @@
 		24FFCB561E739DF800F30C91 /* AlbumManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFCB551E739DF800F30C91 /* AlbumManager.swift */; };
 		24FFCB581E739EC300F30C91 /* AlbumDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFCB571E739EC300F30C91 /* AlbumDisplay.swift */; };
 		24FFCB5B1E73A17A00F30C91 /* AlbumDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFCB5A1E73A17A00F30C91 /* AlbumDisplayViewController.swift */; };
+		24FFCB5D1E73A50E00F30C91 /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFCB5C1E73A50E00F30C91 /* PlayButton.swift */; };
+		24FFCB601E73A68000F30C91 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFCB5F1E73A68000F30C91 /* LocalizedStrings.swift */; };
+		24FFCB631E73A71800F30C91 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24FFCB651E73A71800F30C91 /* Localizable.strings */; };
 		B56AB8F9FDD3199B5B96D407 /* Pods_FlickrAlbum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7B2084825AC73C4C6CE167C /* Pods_FlickrAlbum.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +44,10 @@
 		24FFCB551E739DF800F30C91 /* AlbumManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumManager.swift; sourceTree = "<group>"; };
 		24FFCB571E739EC300F30C91 /* AlbumDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlbumDisplay.swift; path = ../AlbumDisplay.swift; sourceTree = "<group>"; };
 		24FFCB5A1E73A17A00F30C91 /* AlbumDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumDisplayViewController.swift; sourceTree = "<group>"; };
+		24FFCB5C1E73A50E00F30C91 /* PlayButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
+		24FFCB5F1E73A68000F30C91 /* LocalizedStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
+		24FFCB641E73A71800F30C91 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		24FFCB661E73A73B00F30C91 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4D44A1A3698B05DFAB6B46A2 /* Pods-FlickrAlbum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrAlbum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrAlbum/Pods-FlickrAlbum.debug.xcconfig"; sourceTree = "<group>"; };
 		CF51C6645C8CC59312FAA1FF /* Pods-FlickrAlbum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrAlbum.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrAlbum/Pods-FlickrAlbum.release.xcconfig"; sourceTree = "<group>"; };
 		E7B2084825AC73C4C6CE167C /* Pods_FlickrAlbum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlickrAlbum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +114,7 @@
 			children = (
 				24FFCB591E739ECA00F30C91 /* Protocol */,
 				24FFCB5A1E73A17A00F30C91 /* AlbumDisplayViewController.swift */,
+				24FFCB5C1E73A50E00F30C91 /* PlayButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -124,6 +132,7 @@
 		24FFCB471E739AB900F30C91 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				24FFCB5E1E73A66000F30C91 /* Resource */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -144,6 +153,15 @@
 				24FFCB571E739EC300F30C91 /* AlbumDisplay.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		24FFCB5E1E73A66000F30C91 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				24FFCB5F1E73A68000F30C91 /* LocalizedStrings.swift */,
+				24FFCB651E73A71800F30C91 /* Localizable.strings */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		303D69C74CBD6E3F5DEA3019 /* Pods */ = {
@@ -210,6 +228,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = 24FFCB261E7395DC00F30C91;
 			productRefGroup = 24FFCB301E7395DC00F30C91 /* Products */;
@@ -227,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24FFCB3D1E7395DC00F30C91 /* LaunchScreen.storyboard in Resources */,
+				24FFCB631E73A71800F30C91 /* Localizable.strings in Resources */,
 				24FFCB3A1E7395DC00F30C91 /* Assets.xcassets in Resources */,
 				24FFCB381E7395DC00F30C91 /* Main.storyboard in Resources */,
 			);
@@ -292,9 +312,11 @@
 				24FFCB581E739EC300F30C91 /* AlbumDisplay.swift in Sources */,
 				24FFCB351E7395DC00F30C91 /* ViewController.swift in Sources */,
 				24FFCB501E739C9600F30C91 /* FlickrApiResponseHandler.swift in Sources */,
+				24FFCB5D1E73A50E00F30C91 /* PlayButton.swift in Sources */,
 				24FFCB4B1E739BDC00F30C91 /* NetworkingController.swift in Sources */,
 				24FFCB491E739BCC00F30C91 /* AlbumController.swift in Sources */,
 				24FFCB5B1E73A17A00F30C91 /* AlbumDisplayViewController.swift in Sources */,
+				24FFCB601E73A68000F30C91 /* LocalizedStrings.swift in Sources */,
 				24FFCB331E7395DC00F30C91 /* AppDelegate.swift in Sources */,
 				24FFCB4E1E739C3B00F30C91 /* FlickrApi.swift in Sources */,
 				24FFCB561E739DF800F30C91 /* AlbumManager.swift in Sources */,
@@ -320,6 +342,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		24FFCB651E73A71800F30C91 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24FFCB641E73A71800F30C91 /* en */,
+				24FFCB661E73A73B00F30C91 /* ko */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -327,6 +358,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -377,6 +409,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
