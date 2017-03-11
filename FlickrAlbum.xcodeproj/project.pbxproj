@@ -16,7 +16,6 @@
 		24FFCB4B1E739BDC00F30C91 /* NetworkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFCB4A1E739BDC00F30C91 /* NetworkingController.swift */; };
 		24FFCB4E1E739C3B00F30C91 /* FlickrApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFCB4D1E739C3B00F30C91 /* FlickrApi.swift */; };
 		24FFCB501E739C9600F30C91 /* FlickrApiResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFCB4F1E739C9600F30C91 /* FlickrApiResponseHandler.swift */; };
-		24FFCB521E739D2100F30C91 /* PhotoFeeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFCB511E739D2100F30C91 /* PhotoFeeds.swift */; };
 		24FFCB541E739DAC00F30C91 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFCB531E739DAC00F30C91 /* Photo.swift */; };
 		24FFCB561E739DF800F30C91 /* AlbumManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFCB551E739DF800F30C91 /* AlbumManager.swift */; };
 		24FFCB581E739EC300F30C91 /* AlbumDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFCB571E739EC300F30C91 /* AlbumDisplay.swift */; };
@@ -40,7 +39,6 @@
 		24FFCB4A1E739BDC00F30C91 /* NetworkingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingController.swift; sourceTree = "<group>"; };
 		24FFCB4D1E739C3B00F30C91 /* FlickrApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrApi.swift; sourceTree = "<group>"; };
 		24FFCB4F1E739C9600F30C91 /* FlickrApiResponseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrApiResponseHandler.swift; sourceTree = "<group>"; };
-		24FFCB511E739D2100F30C91 /* PhotoFeeds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoFeeds.swift; sourceTree = "<group>"; };
 		24FFCB531E739DAC00F30C91 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		24FFCB551E739DF800F30C91 /* AlbumManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumManager.swift; sourceTree = "<group>"; };
 		24FFCB571E739EC300F30C91 /* AlbumDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlbumDisplay.swift; path = ../AlbumDisplay.swift; sourceTree = "<group>"; };
@@ -105,7 +103,6 @@
 		24FFCB441E739A9B00F30C91 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				24FFCB511E739D2100F30C91 /* PhotoFeeds.swift */,
 				24FFCB531E739DAC00F30C91 /* Photo.swift */,
 			);
 			path = Model;
@@ -311,7 +308,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				24FFCB541E739DAC00F30C91 /* Photo.swift in Sources */,
-				24FFCB521E739D2100F30C91 /* PhotoFeeds.swift in Sources */,
 				24FFCB581E739EC300F30C91 /* AlbumDisplay.swift in Sources */,
 				24FFCB351E7395DC00F30C91 /* ViewController.swift in Sources */,
 				24FFCB501E739C9600F30C91 /* FlickrApiResponseHandler.swift in Sources */,

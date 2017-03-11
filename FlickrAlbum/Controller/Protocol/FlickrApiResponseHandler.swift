@@ -9,5 +9,5 @@
 import Foundation
 
 protocol FlickrApiResponseHandler {
-  func didReceive(photoFeeds: PhotoFeeds?)
+  func didReceive(photos: [Photo])
 }

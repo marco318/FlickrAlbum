@@ -8,7 +8,7 @@
 
 import Foundation
 import Alamofire
-import SWXMLHash
+import AEXML
 
 class NetworkingController {
   static let shared = NetworkingController()
@@ -37,8 +37,24 @@ extension NetworkingController: FlickrApi {
     let completion: ((DataResponse<Data>) -> Void) = { response in
       switch response.result {
       case .success(let value):
-        let xml = SWXMLHash.parse(value)
-        handler.didReceive(photoFeeds: self.photoFeeds(from: xml))
+        do {
+          let xmlDoc = try AEXMLDocument(xml: value)
+          guard let entries = xmlDoc.root["entry"].all else {
+            break
+          }
+          var photos: [Photo] = []
+          for entry in entries {
+            if let title = entry["title"].value,
+              let link = entry["link"].attributes["href"] {
+              let photo = Photo(title: title, urlString: link)
+              photos.append(photo)
+            }
+          }
+          handler.didReceive(photos: photos)
+        } catch {
+          
+        }
+
       case .failure(let error):
         print(error)
       }
@@ -46,22 +62,5 @@ extension NetworkingController: FlickrApi {
     request(to: url, by: .get, with: nil, completion)
   }
   
-  private func photoFeeds(from xml: XMLIndexer) -> PhotoFeeds? {
-    var photos: [Photo] = []
-    let timeString = xml["feed"]["updated"].element?.text
-    let photosXml = xml["feed"]["entry"].all
-    photosXml.forEach { element in
-      if let photo = photo(from: element) {
-        photos.append(photo)
-      }
-    }
-    return PhotoFeeds(updatedTimeString: timeString, photos: photos)
-  }
   
-  private func photo(from xml: XMLIndexer) -> Photo? {
-    let title = xml["entry"]["title"].element?.text
-    let url = xml["entry"]["link"].element?.attribute(by: "href")?.text
-    
-    return Photo(title: title, urlString: url)
-  }
 }

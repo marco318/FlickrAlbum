@@ -10,6 +10,8 @@ import Foundation
 
 class AlbumController: AlbumManager {
   
+  fileprivate(set) var photos: [Photo] = []
+  
   func requestPhotoFeeds() {
     NetworkingController.shared.fetchPhotoFeeds(responseWith: self)
   }
@@ -24,13 +26,8 @@ class AlbumController: AlbumManager {
 }
 
 extension AlbumController: FlickrApiResponseHandler {
-  func didReceive(photoFeeds: PhotoFeeds?) {
-    print("didReceive photoFeeds from AlbumController")
-    guard let photos = photoFeeds?.photos else {
-      return
-    }
-    photos.forEach {
-      print($0.urlString ?? "no url")
-    }
+  func didReceive(photos: [Photo]) {
+    self.photos = photos
+    print("didReceive photos, count: \(photos.count)")
   }
 }

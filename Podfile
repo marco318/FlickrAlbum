@@ -7,7 +7,7 @@ target 'FlickrAlbum' do
 
   # Pods for FlickrAlbum
   pod 'Alamofire', '~> 4.4'
-  pod 'SWXMLHash', '~> 3.0.0'
+  pod 'AEXML'
 
 
 end
