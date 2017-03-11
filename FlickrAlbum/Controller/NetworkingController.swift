@@ -58,7 +58,7 @@ extension NetworkingController: FlickrApi {
         if error._code == NSURLErrorTimedOut {
           handler.didReceiveTimeOut()
         } else {
-          print(response.data)
+          print(response.response)
           handler.didReceiveError(description: error.localizedDescription)
         }
       }

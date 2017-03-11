@@ -11,7 +11,7 @@ import UIKit
 import SDWebImage
 
 
-class AlbumController: AlbumManager {
+class AlbumController {
   
   var delegate: AlbumControllerDelegate?
   
@@ -21,6 +21,10 @@ class AlbumController: AlbumManager {
   
   fileprivate let moq = 3
   
+}
+
+extension AlbumController: AlbumManager {
+  
   func requestPhotoFeeds() {
     NetworkingController.shared.fetchPhotoFeeds(responseWith: self)
   }
@@ -29,11 +33,14 @@ class AlbumController: AlbumManager {
     
   }
   
-  
-  func remove(old: Photo) {
-    
+  func remove(usedImage: UIImage) {
+    guard let selectedIndex = images.index(of: usedImage) else {
+      return
+    }
+    images.remove(at: selectedIndex)
+    checkMoq()
   }
-  
+ 
   func checkMoq() {
     if images.count < moq {
       downloadNewImages()

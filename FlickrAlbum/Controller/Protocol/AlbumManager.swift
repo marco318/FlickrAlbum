@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import UIKit
 
 protocol AlbumManager {
   func requestPhotoFeeds()
   func downloadNewImages()
   func didUpdatePhotos()
-  func remove(old: Photo)
+  func remove(usedImage: UIImage)
   func checkMoq()
 }
