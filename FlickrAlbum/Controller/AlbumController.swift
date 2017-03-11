@@ -9,6 +9,11 @@
 import Foundation
 
 class AlbumController: AlbumManager {
+  
+  func requestPhotoFeeds() {
+    NetworkingController.shared.fetchPhotoFeeds(responseWith: self)
+  }
+  
   func parse(photoFeeds: PhotoFeeds) -> [Photo] {
     return []
   }
@@ -19,5 +24,11 @@ class AlbumController: AlbumManager {
   
   func remove(old: Photo) {
     
+  }
+}
+
+extension AlbumController: FlickrApiResponseHandler {
+  func didReceive(photoFeeds: PhotoFeeds?) {
+    print("didReceive photoFeeds from AlbumController")
   }
 }

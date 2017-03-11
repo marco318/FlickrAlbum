@@ -10,6 +10,12 @@ import Foundation
 
 class AlbumDisplayViewController: ViewController {
   
+  var albumController = AlbumController()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+  }
   // MARK: Actions
   
   @IBAction func onTouchPlayButton(_ sender: PlayButton) {
@@ -22,7 +28,7 @@ extension AlbumDisplayViewController: AlbumDisplay {
 
   
   func playButtonDidClicked() {
-    
+    albumController.requestPhotoFeeds()
   }
   
   func fetch(next: Photo) {

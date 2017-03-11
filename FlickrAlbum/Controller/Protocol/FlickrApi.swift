@@ -9,5 +9,5 @@
 import Foundation
 
 protocol FlickrApi {
-  func fetchPhotoFeeds()
+  func fetchPhotoFeeds(responseWith handler: FlickrApiResponseHandler)
 }
