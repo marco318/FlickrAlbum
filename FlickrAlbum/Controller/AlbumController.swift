@@ -7,3 +7,17 @@
 //
 
 import Foundation
+
+class AlbumController: AlbumManager {
+  func parse(photoFeeds: PhotoFeeds) -> [Photo] {
+    return []
+  }
+  
+  func didUpdatePhotos() {
+    
+  }
+  
+  func remove(old: Photo) {
+    
+  }
+}
