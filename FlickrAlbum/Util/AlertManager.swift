@@ -17,36 +17,83 @@ class AlertManager {
   func show(_ type: AlertType, from viewController: UIViewController) {
     switch type {
     case .timer: showTimerAlert(from: viewController)
-    case .tooMuchTimeOut: break
-    case .serverError: break
+    case .tooMuchTimeOut: showTimeOutAlert(from: viewController)
+    case .serverError: showServerErrorAlert(from: viewController)
     case .parsingError: break
     }
   }
   
   private func showTimerAlert(from viewController: UIViewController) {
-    let alert = UIAlertController(title: "update time", message: "1 to 10 sec", preferredStyle: .alert)
+    let alert = UIAlertController(
+      title: LocalizedStrings.Alert.timeInterval,
+      message: LocalizedStrings.Alert.timeRangeGuide,
+      preferredStyle: .alert
+    )
+    
     alert.addTextField { textField in
-      let refreshTime = UserDefaults.standard.integer(forKey: Constants.UserDefaults.Key.refreshTime)
-      if refreshTime == 0 {
-        UserDefaults.standard.set(1, forKey: Constants.UserDefaults.Key.refreshTime)
-      }
-      textField.text = "\(max(1,refreshTime))"
+      let refreshTime = TimerController.timeInterval()
+      textField.text = "\(refreshTime)"
       textField.keyboardType = .numberPad
     }
-    let actionConfirm = UIAlertAction(title: "Confirm", style: .default, handler: {
+    
+    let actionConfirm = UIAlertAction(
+      title: LocalizedStrings.Common.confirm,
+      style: .default,
+      handler: {
       action -> Void in
-      guard let time = alert.textFields![0].text else {
-        return
-      }
-      guard let timeInt = Int(time) else {
-        return
-      }
-      let refreshTime = max(1,min(10,timeInt))
-      UserDefaults.standard.set(refreshTime, forKey: Constants.UserDefaults.Key.refreshTime)
+        guard let time = alert.textFields![0].text else {
+          return
+        }
+        guard let timeInt = Int(time) else {
+          return
+        }
+        TimerController.setTimeInterval(timeInt)
     })
-    let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+    
+    let actionCancel = UIAlertAction(
+      title: LocalizedStrings.Common.cancel,
+      style: .cancel,
+      handler: nil
+    )
+    
     alert.addAction(actionConfirm)
     alert.addAction(actionCancel)
+    
+    viewController.present(alert, animated: true, completion: nil)
+  }
+  
+  private func showTimeOutAlert(from viewController: UIViewController) {
+    let alert = UIAlertController(
+      title: LocalizedStrings.Alert.tooMuchTimeOut,
+      message: LocalizedStrings.Alert.tryAgainLater,
+      preferredStyle: .alert
+    )
+    
+    let actionOkay = UIAlertAction(
+      title: LocalizedStrings.Common.confirm,
+      style: .default,
+      handler: nil
+    )
+    
+    alert.addAction(actionOkay)
+    
+    viewController.present(alert, animated: true, completion: nil)
+  }
+  
+  private func showServerErrorAlert(from viewController: UIViewController) {
+    let alert = UIAlertController(
+      title: LocalizedStrings.Alert.tooMuchServerError,
+      message: LocalizedStrings.Alert.tryAgainLater,
+      preferredStyle: .alert
+    )
+    
+    let actionOkay = UIAlertAction(
+      title: LocalizedStrings.Common.confirm,
+      style: .default,
+      handler: nil)
+    
+    alert.addAction(actionOkay)
+    
     viewController.present(alert, animated: true, completion: nil)
   }
 }

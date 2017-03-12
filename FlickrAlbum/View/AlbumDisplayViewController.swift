@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class AlbumDisplayViewController: ViewController {
+  
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var playButton: PlayButton!
   
@@ -19,8 +20,8 @@ class AlbumDisplayViewController: ViewController {
     super.viewDidLoad()
     albumController.delegate = self
     albumController.requestPhotoFeeds()
-    
   }
+  
   // MARK: Actions
   
   @IBAction func onTouchPlayButton(_ sender: PlayButton) {
@@ -45,26 +46,23 @@ extension AlbumDisplayViewController: AlbumDisplay {
     }
     switch staus {
     case .goToPlay: showFirstImage()
-    case .goToStop: break
-    case .loading: break
+    default: break
     }
-    
   }
   
   private func showFirstImage() {
-    print("showFirstImage")
-    
     guard albumController.images.count > 0 else {
-      print("no image")
+      albumController.checkMoq()
       return
     }
+    
     let image = albumController.images[0]
     changeImageWithAnim(image: image)
     
-    albumController.remove(usedImage: image)
+    albumController.remove(used: image)
     
-    var interval = UserDefaults.standard.integer(forKey: Constants.UserDefaults.Key.refreshTime)
-    interval = min(10, max(1,interval))
+    let interval = TimerController.timeInterval()
+    
     delay(with: Double(interval), closure: {
       if self.playButton.status == .goToStop {
         self.showFirstImage()
@@ -73,9 +71,8 @@ extension AlbumDisplayViewController: AlbumDisplay {
   }
   
   private func changeImageWithAnim(image: UIImage) {
-    
-    guard let currentImage = self.imageView.image else {
-      self.imageView.image = image
+    guard let currentImage = imageView.image else {
+      imageView.image = image
       return
     }
     let fadeAnim = CABasicAnimation(keyPath: "contents")
@@ -83,22 +80,10 @@ extension AlbumDisplayViewController: AlbumDisplay {
     fadeAnim.fromValue = currentImage
     fadeAnim.toValue = image
     fadeAnim.duration = 0.75
-    self.imageView.layer.add(fadeAnim, forKey: "contents")
-    self.imageView.image = image
-  
+    imageView.layer.add(fadeAnim, forKey: "contents")
+    imageView.image = image
   }
   
-  func fetch(next: Photo) {
-
-  }
-  
-  func show(next: Photo) {
-    
-  }
-  
-  func notifyDidFinishDisplay(of old: Photo) {
-    
-  }
 }
 
 extension AlbumDisplayViewController: AlbumControllerDelegate {
@@ -107,5 +92,13 @@ extension AlbumDisplayViewController: AlbumControllerDelegate {
       playButton.status = .goToPlay
       playButton.updateUI(with: .goToPlay)
     }
+  }
+  
+  func tooMuchTimeOutDidOccur() {
+    AlertManager().show(.tooMuchTimeOut, from: self)
+  }
+  
+  func tooMuchErrorDidOccur() {
+    AlertManager().show(.serverError, from: self)
   }
 }

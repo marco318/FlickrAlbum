@@ -9,8 +9,5 @@
 import Foundation
 
 protocol AlbumDisplay {
-  func fetch(next: Photo)
-  func show(next: Photo)
-  func notifyDidFinishDisplay(of old: Photo)
   func playButtonDidClicked()
 }

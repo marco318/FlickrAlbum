@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24CBE1DB1E7519AC00003F9E /* TimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CBE1DA1E7519AC00003F9E /* TimerController.swift */; };
 		24FFCB331E7395DC00F30C91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFCB321E7395DC00F30C91 /* AppDelegate.swift */; };
 		24FFCB351E7395DC00F30C91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFCB341E7395DC00F30C91 /* ViewController.swift */; };
 		24FFCB381E7395DC00F30C91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24FFCB361E7395DC00F30C91 /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		24CBE1DA1E7519AC00003F9E /* TimerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerController.swift; sourceTree = "<group>"; };
 		24FFCB2F1E7395DC00F30C91 /* FlickrAlbum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrAlbum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24FFCB321E7395DC00F30C91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24FFCB341E7395DC00F30C91 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				24FFCB4C1E739BFF00F30C91 /* Protocol */,
 				24FFCB481E739BCC00F30C91 /* AlbumController.swift */,
 				24FFCB4A1E739BDC00F30C91 /* NetworkingController.swift */,
+				24CBE1DA1E7519AC00003F9E /* TimerController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				24FFCB351E7395DC00F30C91 /* ViewController.swift in Sources */,
 				24FFCB501E739C9600F30C91 /* FlickrApiResponseHandler.swift in Sources */,
 				24FFCB5D1E73A50E00F30C91 /* PlayButton.swift in Sources */,
+				24CBE1DB1E7519AC00003F9E /* TimerController.swift in Sources */,
 				24FFCB6C1E74252F00F30C91 /* Constants.swift in Sources */,
 				24FFCB4B1E739BDC00F30C91 /* NetworkingController.swift in Sources */,
 				24FFCB491E739BCC00F30C91 /* AlbumController.swift in Sources */,

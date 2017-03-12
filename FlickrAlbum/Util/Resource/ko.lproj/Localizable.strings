@@ -8,3 +8,13 @@
 
 "PlayButton.play" = "시작";
 "PlayButton.stop" = "중지";
+"PlayButton.loading" = "준비 중...";
+
+"Alert.timeInterval" = "시간 간격을 입력하세요";
+"Alert.timeRangeGuide" = "1 부터 10 사이의 숫자만 가능합니다.";
+"Alert.tooMuchTimeOut" = "응답 지연";
+"Alert.tooMuchServerError" = "서버 문제 발생";
+"Alert.tryAgainLater" = "잠시 후에 다시 시도해주세요.";
+
+"Common.cancel" = "취소";
+"Common.confirm" = "확인";
