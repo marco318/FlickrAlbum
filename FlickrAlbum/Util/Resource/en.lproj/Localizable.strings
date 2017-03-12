@@ -8,6 +8,7 @@
 
 "PlayButton.play" = "Play";
 "PlayButton.stop" = "Stop";
+"PlayButton.loading" = "Loading...";
 
 "Alert.timeInterval" = "Enter Time Interval";
 "Alert.timeRangeGuide" = "From 1 to 10 only.";

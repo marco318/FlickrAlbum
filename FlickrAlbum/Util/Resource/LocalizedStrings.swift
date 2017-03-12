@@ -12,6 +12,7 @@ struct LocalizedStrings {
   struct PlayButton {
     static let play = NSLocalizedString("PlayButton.play", comment: "")
     static let stop = NSLocalizedString("PlayButton.stop", comment: "")
+    static let loading = NSLocalizedString("PlayButton.loading", comment: "")
   }
   
   struct Alert {

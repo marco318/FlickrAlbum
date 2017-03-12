@@ -18,7 +18,7 @@ class PlayButton: UIButton {
       switch self {
       case .goToPlay: return LocalizedStrings.PlayButton.play
       case .goToStop: return LocalizedStrings.PlayButton.stop
-      case .loading: return "Loading..."
+      case .loading: return LocalizedStrings.PlayButton.loading
       }
     }
     
