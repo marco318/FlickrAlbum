@@ -87,6 +87,7 @@ extension AlbumController: AlbumManager {
 extension AlbumController: FlickrApiResponseHandler {
   func didReceive(photos: [Photo]) {
     timeOutCount = 0
+    errorCount = 0
     self.photos = photos
     checkMoq()
   }
