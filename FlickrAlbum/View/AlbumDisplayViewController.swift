@@ -93,4 +93,12 @@ extension AlbumDisplayViewController: AlbumControllerDelegate {
       playButton.updateUI(with: .goToPlay)
     }
   }
+  
+  func tooMuchTimeOutDidOccur() {
+    AlertManager().show(.tooMuchTimeOut, from: self)
+  }
+  
+  func tooMuchErrorDidOccur() {
+    AlertManager().show(.serverError, from: self)
+  }
 }

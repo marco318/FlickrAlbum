@@ -18,9 +18,10 @@ class AlbumController {
   fileprivate(set) var photos: [Photo] = []
   fileprivate(set) var images: [UIImage] = []
   fileprivate var timeOutCount = 0
+  fileprivate var errorCount = 0
   
   fileprivate let moq = 3
-  
+  /// moq: minimum order quantity
 }
 
 extension AlbumController: AlbumManager {
@@ -48,13 +49,12 @@ extension AlbumController: AlbumManager {
       requestPhotoFeeds()
       return
     }
+    
     var failedToDownloadFirstPhoto = false
     defer {
+      photos.remove(at: 0)
       if failedToDownloadFirstPhoto {
-        photos.remove(at: 0)
         downloadNewImages()
-      } else {
-        photos.remove(at: 0)
       }
       if photos.count < moq {
         requestPhotoFeeds()
@@ -72,7 +72,6 @@ extension AlbumController: AlbumManager {
       options: [],
       progress: nil,
       completed: { image, data, error, finished in
-        
         if let image = image {
           self.images.append(image)
           self.delegate?.imageDidLoad()
@@ -80,7 +79,6 @@ extension AlbumController: AlbumManager {
           failedToDownloadFirstPhoto = true
         }
         self.checkMoq()
-      
     })
     
   }
@@ -91,24 +89,30 @@ extension AlbumController: FlickrApiResponseHandler {
     timeOutCount = 0
     self.photos = photos
     checkMoq()
-    print("didReceive photos, count: \(photos.count)")
   }
   
   func didReceiveTimeOut() {
-    print("time out!! count: \(timeOutCount)")
+    timeOutCount += 1
     if timeOutCount < 2 {
       requestPhotoFeeds()
     } else {
-      // error
+      delegate?.tooMuchTimeOutDidOccur()
     }
   }
   
   func didReceiveError(description: String) {
-    requestPhotoFeeds()
+    errorCount += 1
+    if errorCount < 5 {
+      requestPhotoFeeds()
+    } else {
+      delegate?.tooMuchErrorDidOccur()
+    }
   }
   
 }
 
 protocol AlbumControllerDelegate {
   func imageDidLoad()
+  func tooMuchTimeOutDidOccur()
+  func tooMuchErrorDidOccur()
 }
