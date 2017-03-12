@@ -12,7 +12,6 @@ import UIKit
 protocol AlbumManager {
   func requestPhotoFeeds()
   func downloadNewImages()
-  func didUpdatePhotos()
-  func remove(usedImage: UIImage)
+  func remove(used: UIImage)
   func checkMoq()
 }

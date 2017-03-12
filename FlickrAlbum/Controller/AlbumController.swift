@@ -29,12 +29,8 @@ extension AlbumController: AlbumManager {
     NetworkingController.shared.fetchPhotoFeeds(responseWith: self)
   }
   
-  func didUpdatePhotos() {
-    
-  }
-  
-  func remove(usedImage: UIImage) {
-    guard let selectedIndex = images.index(of: usedImage) else {
+  func remove(used: UIImage) {
+    guard let selectedIndex = images.index(of: used) else {
       return
     }
     images.remove(at: selectedIndex)

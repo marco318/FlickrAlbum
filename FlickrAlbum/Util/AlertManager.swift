@@ -26,11 +26,8 @@ class AlertManager {
   private func showTimerAlert(from viewController: UIViewController) {
     let alert = UIAlertController(title: "update time", message: "1 to 10 sec", preferredStyle: .alert)
     alert.addTextField { textField in
-      let refreshTime = UserDefaults.standard.integer(forKey: Constants.UserDefaults.Key.refreshTime)
-      if refreshTime == 0 {
-        UserDefaults.standard.set(1, forKey: Constants.UserDefaults.Key.refreshTime)
-      }
-      textField.text = "\(max(1,refreshTime))"
+      let refreshTime = TimerController.timeInterval()
+      textField.text = "\(refreshTime)"
       textField.keyboardType = .numberPad
     }
     let actionConfirm = UIAlertAction(title: "Confirm", style: .default, handler: {
@@ -41,8 +38,7 @@ class AlertManager {
       guard let timeInt = Int(time) else {
         return
       }
-      let refreshTime = max(1,min(10,timeInt))
-      UserDefaults.standard.set(refreshTime, forKey: Constants.UserDefaults.Key.refreshTime)
+      TimerController.setTimeInterval(timeInt)
     })
     let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
     alert.addAction(actionConfirm)
