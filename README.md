@@ -11,4 +11,8 @@ A digital album showing images from Flickr
 - Alamofire: Networking
 - SwiftyJSON: JSON handling
 - SDWebImage: Asynchronous Image Downloader
- 
+
+## Requirements
+- iOS 9.0+
+- Swift 3.0+
+- Xcode 8.1+ 

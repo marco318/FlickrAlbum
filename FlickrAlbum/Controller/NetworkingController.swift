@@ -8,7 +8,6 @@
 
 import Foundation
 import Alamofire
-import AEXML
 import SwiftyJSON
 
 class NetworkingController {
