@@ -7,7 +7,6 @@ target 'FlickrAlbum' do
 
   # Pods for FlickrAlbum
   pod 'Alamofire', '~> 4.4'
-  pod 'AEXML'
   pod 'SDWebImage/WebP'
   pod 'SwiftyJSON'
 
