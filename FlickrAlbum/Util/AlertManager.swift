@@ -24,7 +24,11 @@ class AlertManager {
   }
   
   private func showTimerAlert(from viewController: UIViewController) {
-    let alert = UIAlertController(title: "update time", message: "1 to 10 sec", preferredStyle: .alert)
+    let alert = UIAlertController(
+      title: LocalizedStrings.Alert.timeInterval,
+      message: LocalizedStrings.Alert.timeRangeGuide,
+      preferredStyle: .alert
+    )
     
     alert.addTextField { textField in
       let refreshTime = TimerController.timeInterval()
@@ -32,17 +36,26 @@ class AlertManager {
       textField.keyboardType = .numberPad
     }
     
-    let actionConfirm = UIAlertAction(title: "Confirm", style: .default, handler: {
+    let actionConfirm = UIAlertAction(
+      title: LocalizedStrings.Common.confirm,
+      style: .default,
+      handler: {
       action -> Void in
-      guard let time = alert.textFields![0].text else {
-        return
-      }
-      guard let timeInt = Int(time) else {
-        return
-      }
-      TimerController.setTimeInterval(timeInt)
+        guard let time = alert.textFields![0].text else {
+          return
+        }
+        guard let timeInt = Int(time) else {
+          return
+        }
+        TimerController.setTimeInterval(timeInt)
     })
-    let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+    
+    let actionCancel = UIAlertAction(
+      title: LocalizedStrings.Common.cancel,
+      style: .cancel,
+      handler: nil
+    )
+    
     alert.addAction(actionConfirm)
     alert.addAction(actionCancel)
     
@@ -50,16 +63,37 @@ class AlertManager {
   }
   
   private func showTimeOutAlert(from viewController: UIViewController) {
-    let alert = UIAlertController(title: "Too much time out", message: "try again later", preferredStyle: .alert)
-    let actionOkay = UIAlertAction(title: "Okay", style: .default, handler: nil)
+    let alert = UIAlertController(
+      title: LocalizedStrings.Alert.tooMuchTimeOut,
+      message: LocalizedStrings.Alert.tryAgainLater,
+      preferredStyle: .alert
+    )
+    
+    let actionOkay = UIAlertAction(
+      title: LocalizedStrings.Common.confirm,
+      style: .default,
+      handler: nil
+    )
+    
     alert.addAction(actionOkay)
+    
     viewController.present(alert, animated: true, completion: nil)
   }
   
   private func showServerErrorAlert(from viewController: UIViewController) {
-    let alert = UIAlertController(title: "Server error did occur", message: "try again later", preferredStyle: .alert)
-    let actionOkay = UIAlertAction(title: "Okay", style: .default, handler: nil)
+    let alert = UIAlertController(
+      title: LocalizedStrings.Alert.tooMuchServerError,
+      message: LocalizedStrings.Alert.tryAgainLater,
+      preferredStyle: .alert
+    )
+    
+    let actionOkay = UIAlertAction(
+      title: LocalizedStrings.Common.confirm,
+      style: .default,
+      handler: nil)
+    
     alert.addAction(actionOkay)
+    
     viewController.present(alert, animated: true, completion: nil)
   }
 }

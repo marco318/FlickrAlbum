@@ -13,4 +13,17 @@ struct LocalizedStrings {
     static let play = NSLocalizedString("PlayButton.play", comment: "")
     static let stop = NSLocalizedString("PlayButton.stop", comment: "")
   }
+  
+  struct Alert {
+    static let timeInterval = NSLocalizedString("Alert.timeInterval", comment: "")
+    static let timeRangeGuide = NSLocalizedString("Alert.timeRangeGuide", comment: "")
+    static let tooMuchTimeOut = NSLocalizedString("Alert.tooMuchTimeOut", comment: "")
+    static let tooMuchServerError = NSLocalizedString("Alert.tooMuchServerError", comment: "")
+    static let tryAgainLater = NSLocalizedString("Alert.tryAgainLater", comment: "")
+  }
+  
+  struct Common {
+    static let cancel = NSLocalizedString("Common.cancel", comment: "")
+    static let confirm = NSLocalizedString("Common.confirm", comment: "")
+  }
 }

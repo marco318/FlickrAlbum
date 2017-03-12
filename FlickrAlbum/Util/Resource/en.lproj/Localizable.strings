@@ -8,3 +8,12 @@
 
 "PlayButton.play" = "Play";
 "PlayButton.stop" = "Stop";
+
+"Alert.timeInterval" = "Enter Time Interval";
+"Alert.timeRangeGuide" = "From 1 to 10 only.";
+"Alert.tooMuchTimeOut" = "Time out";
+"Alert.tooMuchServerError" = "Server Error";
+"Alert.tryAgainLater" = "Please try again later";
+
+"Common.cancel" = "Cancel";
+"Common.confirm" = "Confirm";
